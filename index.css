@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* Helper positions for decorative circles */
+.hero-wave .decor-circle {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.14;
+  transform: translateZ(0);
+}
+
+/* Ensure wave svg sits beneath hero content but above page background */
+.hero-wave svg {
+  display: block;
+}
