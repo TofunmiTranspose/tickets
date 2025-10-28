@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaSpinner } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -123,12 +124,12 @@ const Login = () => {
                 {showPassword ? "Hide" : "Show"}
               </button>
             </div>
-            <a
-              href="/signup"
+            <Link
+              to="/signup"
               className="text-blue-400 text-sm mt-2 inline-block"
             >
               Create an account
-            </a>
+            </Link>
           </div>
 
           <button
