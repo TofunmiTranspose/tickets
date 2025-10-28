@@ -44,13 +44,13 @@ export default function Landing() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/auth/login"
+                to="/login"
                 className="px-6 py-3 rounded-lg bg-transparent border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition text-sm font-medium"
               >
                 Login
               </Link>
               <Link
-                to="/auth/signup"
+                to="/signup"
                 className="px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition text-sm font-medium"
               >
                 Get Started
@@ -131,7 +131,7 @@ export default function Landing() {
               <strong className="text-white">Password123</strong>
             </p>
             <Link
-              to="/auth/signup"
+              to="/signup"
               className="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition text-sm"
             >
               Try demo
