@@ -1,69 +1,105 @@
-# React + TypeScript + Vite
+# Ticketing Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive dashboard application for managing support tickets. Users can create, edit, and delete tickets, view ticket statistics, and visualize recent activity with charts. The application supports authentication and persists data using browser local storage.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Authentication** (session-based)
+- **Create, Edit, Delete Tickets**
+- **Ticket Status Tracking** (Open, In Progress, Closed)
+- **Dashboard Analytics**
+- **Responsive Sidebar with Mobile Support**
+- **Persistent Local Storage**
+- **Interactive Chart for Ticket Trends**
+- **Toast Notifications**
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React + TypeScript**
+- **Tailwind CSS**
+- **Local Storage for Persistence**
+- **Framer Motion for Animations**
+- **React Icons**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📁 Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/
+├── pages/
+│   └── Dashboard.tsx
+├── App.tsx
+└── index.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📦 Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
+
+## 🔐 Authentication
+
+The dashboard checks for an active session using:
+
+```ts
+const session = sessionStorage.getItem("activeUser");
+```
+
+If no user is detected, the app redirects to the login page.
+
+## 📊 Ticket Features
+
+Each ticket contains:
+
+- Title
+- Description
+- Status
+- Created Date
+
+Tickets are stored in `localStorage` per user session.
+
+## 📈 Dashboard Analytics
+
+- Total Tickets
+- Open Tickets
+- Recently Created (last 7 days)
+- Activity chart (bar visualization)
+
+## 🧭 Navigation
+
+- Responsive Sidebar
+- Sidebar options for Dashboard, Tickets, Analytics, and Settings
+
+## 💾 Local Storage Schema
+
+```json
+{
+  "tickets_<username>": [
+    {
+      "id": "12345",
+      "title": "Fix login bug",
+      "description": "User cannot login with Google",
+      "status": "open",
+      "createdAt": "2025-01-01T10:00:00"
+    }
+  ]
+}
+```
+
+## 📌 Future Improvements
+
+- Firebase backend integration
+- User roles & permissions
+- Real-time updates
+
+## ✨ How to Contribute
+
+1. Fork the repo
+2. Create a new feature branch
+3. Submit a PR
+
+## 📄 License
+
+This project is licensed under the MIT License.
